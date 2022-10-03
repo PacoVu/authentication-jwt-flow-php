@@ -45,7 +45,6 @@ class RingCentral {
     }
 
     private function authenticate(){
-      printf("No tokens in session => Authenticate using the JWT token!" . PHP_EOL);
       $url = $_ENV["RC_SERVER_URL"] . "/restapi/oauth/token";
       $basic = $_ENV["RC_CLIENT_ID"] .":". $_ENV["RC_CLIENT_SECRET"];
       $headers = array (
