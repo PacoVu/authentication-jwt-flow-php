@@ -21,6 +21,12 @@ if (isset($_REQUEST['api'])){
             'fromDate' => '2022-08-01T00:00:00.000Z',
           );
         callGetRequest($rc, $endpoint, $params);
+    }elseif ($_REQUEST['api'] == "message") {
+        $endpoint = "/restapi/v1.0/account/~/extension/~/message-store";
+        $params = array(
+                'fromDate' => '2023-01-01T00:00:00.000Z',
+          );
+        callGetRequest($endpoint, $params);
     }
 }else if (isset($_REQUEST['clear-session'])){
   if (isset($_SESSION['sessionAccessToken'])){
