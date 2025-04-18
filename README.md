@@ -25,10 +25,10 @@ $ cp dotenv .env
 Specify the app credentials and the JWT token in the .env file accordingly
 ```
 RC_SERVER_URL=https://platform.devtest.ringcentral.com
-RC_CLIENT_ID=Your-Sandbox-App-Client-Id
-RC_CLIENT_SECRET=Your-Sandbox-App-Client-Secret
+RC_CLIENT_ID=Your-App-Client-Id
+RC_CLIENT_SECRET=Your-App-Client-Secret
 
-JWT_TOKEN=Your-Sandbox-User-JWT-Token
+JWT_TOKEN=Your-User-JWT-Token
 ```
 
 ### Run the demo
