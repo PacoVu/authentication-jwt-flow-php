@@ -6,8 +6,8 @@
 * Add the `ReadAccounts` and `ReadMessages` and `ReadCallLog` permissions for the app.
 * Choose the following option at the Security step
   - This app is private and will only be callable using credentials from the same RingCentral account
-* Copy the Client id and Client secret and add them to the `./environment/.env-sandbox` file as shown in the next section.
-* Generate a sandbox JWT token for the app. Copy the JWT token and add them to the `./environment/.env-sandbox` file as shown in the next section.
+* Copy the Client id and Client secret and add them to the `dotenv` file as shown in the next section.
+* Generate a sandbox JWT token for the app. Copy the JWT token and add them to the `dotenv` file as shown in the next section.
 
 ### Clone - Setup - Run the project
 ```
@@ -19,10 +19,10 @@ $ curl -sS https://getcomposer.org/installer | php
 
 $ php composer.phar install
 
-$ cp environment/dotenv-sandbox environment/.env-sandbox
+$ cp dotenv .env
 ```
 
-Specify the app credentials and the JWT token in the .env-sandbox file accordingly
+Specify the app credentials and the JWT token in the .env file accordingly
 ```
 RC_SERVER_URL=https://platform.devtest.ringcentral.com
 RC_CLIENT_ID=Your-Sandbox-App-Client-Id
@@ -32,7 +32,6 @@ JWT_TOKEN=Your-Sandbox-User-JWT-Token
 ```
 
 ### Run the demo
-* Set `ENVIRONMENT=sandbox` in the `.env` file to run in the sandbox environment.
 
 ```
 $ php -S localhost:5000

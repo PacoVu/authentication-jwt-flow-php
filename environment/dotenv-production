@@ -1,5 +1,0 @@
-RC_SERVER_URL=https://platform.ringcentral.com
-RC_CLIENT_ID=Your-Production-App-Client-Id
-RC_CLIENT_SECRET=Your-Production-App-Client-Secret
-
-JWT_TOKEN=Your-Production-User-JWT-Token

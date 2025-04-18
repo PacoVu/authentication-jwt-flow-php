@@ -12,21 +12,21 @@ if (isset($_REQUEST['api'])){
     }elseif ($_REQUEST['api'] == "extension-call-log") {
         $endpoint = "/restapi/v1.0/account/~/extension/~/call-log";
         $params = array(
-            'fromDate' => '2022-08-01T00:00:00.000Z',
+            'fromDate' => '2025-03-01T00:00:00.000Z',
           );
         callGetRequest($rc, $endpoint, $params);
     }elseif ($_REQUEST['api'] == "account-call-log") {
         $endpoint = "/restapi/v1.0/account/~/call-log";
         $params = array(
-            'fromDate' => '2022-08-01T00:00:00.000Z',
+            'fromDate' => '2025-03-01T00:00:00.000Z',
           );
         callGetRequest($rc, $endpoint, $params);
     }elseif ($_REQUEST['api'] == "message") {
         $endpoint = "/restapi/v1.0/account/~/extension/~/message-store";
         $params = array(
-                'fromDate' => '2023-01-01T00:00:00.000Z',
+                'fromDate' => '2025-03-01T00:00:00.000Z',
           );
-        callGetRequest($endpoint, $params);
+        callGetRequest($rc, $endpoint, $params);
     }
 }else if (isset($_REQUEST['clear-session'])){
   if (isset($_SESSION['sessionAccessToken'])){
@@ -36,13 +36,12 @@ if (isset($_REQUEST['api'])){
   header("Location: http://localhost:5000");
 }
 
-
 function callGetRequest($rc, $endpoint, $params){
   try {
-    $resp = $rc->get($endpoint, $params);
+    $resp = $rc->get($endpoint, null);
     echo "<p>".$resp."</p>";
   } catch (Exception $e) {
-    print 'Expected HTTP Error: ' . PHP_EOL;
+    print 'Expected HTTP Error: ' . $e . PHP_EOL;
   }
 }
 
@@ -51,7 +50,7 @@ function callPostRequest($rc, $endpoint, $params){
     $resp = $rc->post($endpoint, $params);
     echo "<p>".$resp."</p>";
   } catch (Exception $e) {
-    print 'Expected HTTP Error: ' . PHP_EOL;
+    print 'Expected HTTP Error: ' . $e . PHP_EOL;
   }
 }
 ?>

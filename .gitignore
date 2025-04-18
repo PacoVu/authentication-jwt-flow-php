@@ -4,5 +4,4 @@ composer.lock
 # Dependency directories
 /vendor
 *.txt
-.env-production
-.env-sandbox
+.env

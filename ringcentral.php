@@ -4,17 +4,6 @@ require_once('vendor/autoload.php');
 $dotenv = Dotenv\Dotenv::createMutable(__DIR__, '.env');
 $dotenv->load();
 
-
-$env_file = "./environment/";
-if ($_ENV['ENVIRONMENT'] == "sandbox"){
-  $env_file .= ".env-sandbox";
-}else{
-  $env_file .= ".env-production";
-}
-
-$dotenv = Dotenv\Dotenv::createMutable(__DIR__, $env_file);
-$dotenv->load();
-
 class RingCentral {
     function __construct() {}
 
@@ -145,6 +134,7 @@ class RingCentral {
             if ($params != null)
               $url .= "?".http_build_query($params);
             $headers = array (
+                  'Content-Type: application/json',
                   'Accept: application/json',
                   'Authorization: Bearer ' . $accessToken
                 );
@@ -166,7 +156,7 @@ class RingCentral {
                     if ($httpCode == 200) {
                       return ($callback == "") ? $strResponse : $callback($strResponse);
                     }else{
-                        throw new Exception($strResponse);
+                      throw new Exception($strResponse);
                     }
                 }
             } catch (Exception $e) {
